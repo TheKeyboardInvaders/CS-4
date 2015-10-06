@@ -104,5 +104,10 @@ namespace CS_4
 
         }
         #endregion
+
+        private void tbInput_Click(object sender, EventArgs e)
+        {
+            tbInput.Text = "";
+        }
     }
 }

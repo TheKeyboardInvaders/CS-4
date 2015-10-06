@@ -45,17 +45,19 @@
             this.tbInput.Name = "tbInput";
             this.tbInput.Size = new System.Drawing.Size(622, 194);
             this.tbInput.TabIndex = 0;
-            this.tbInput.Text = "Поместите сюда текст для шифровки";
+            this.tbInput.Text = "Исходное сообщение";
+            this.tbInput.Click += new System.EventHandler(this.tbInput_Click);
             // 
             // btnEncodeCaesar
             // 
-            this.btnEncodeCaesar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEncodeCaesar.BackColor = System.Drawing.Color.White;
+            this.btnEncodeCaesar.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnEncodeCaesar.Location = new System.Drawing.Point(12, 212);
             this.btnEncodeCaesar.Name = "btnEncodeCaesar";
             this.btnEncodeCaesar.Size = new System.Drawing.Size(93, 37);
             this.btnEncodeCaesar.TabIndex = 1;
             this.btnEncodeCaesar.Text = "Зашифровать кодом Цезаря";
-            this.btnEncodeCaesar.UseVisualStyleBackColor = true;
+            this.btnEncodeCaesar.UseVisualStyleBackColor = false;
             this.btnEncodeCaesar.Click += new System.EventHandler(this.btnEncodeCaesar_Click);
             // 
             // tbResult
@@ -66,11 +68,11 @@
             this.tbResult.Name = "tbResult";
             this.tbResult.Size = new System.Drawing.Size(622, 194);
             this.tbResult.TabIndex = 2;
-            this.tbResult.Text = "Результат";
+            this.tbResult.Text = "Зашифрованное сообщение";
             // 
             // btnEncodePetrI
             // 
-            this.btnEncodePetrI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEncodePetrI.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnEncodePetrI.Location = new System.Drawing.Point(442, 212);
             this.btnEncodePetrI.Name = "btnEncodePetrI";
             this.btnEncodePetrI.Size = new System.Drawing.Size(93, 37);
@@ -81,7 +83,7 @@
             // 
             // btnDecodeCaesar
             // 
-            this.btnDecodeCaesar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDecodeCaesar.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnDecodeCaesar.Location = new System.Drawing.Point(111, 212);
             this.btnDecodeCaesar.Name = "btnDecodeCaesar";
             this.btnDecodeCaesar.Size = new System.Drawing.Size(93, 37);
@@ -92,7 +94,7 @@
             // 
             // btnDecodePetrI
             // 
-            this.btnDecodePetrI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDecodePetrI.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnDecodePetrI.Location = new System.Drawing.Point(541, 212);
             this.btnDecodePetrI.Name = "btnDecodePetrI";
             this.btnDecodePetrI.Size = new System.Drawing.Size(93, 37);
@@ -103,7 +105,7 @@
             // 
             // cbAlphabet
             // 
-            this.cbAlphabet.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.cbAlphabet.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cbAlphabet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAlphabet.FormattingEnabled = true;
             this.cbAlphabet.Location = new System.Drawing.Point(256, 221);
@@ -116,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(646, 461);
             this.Controls.Add(this.cbAlphabet);
