@@ -14,12 +14,12 @@ namespace CS_4
     {
         char[] alpharus = { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М',
                             'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ',
-                            'Ы', 'Ь', 'Э', 'Ю', 'Я'
+                            'Ы', 'Ь', 'Э', 'Ю', 'Я', 'А', 'Б', 'В'
         };
 
         char[] alphaeng = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
                             'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
-                            'Y', 'Z'
+                            'Y', 'Z', 'A', 'B', 'C'
         };
 
         public Form1()
@@ -27,6 +27,7 @@ namespace CS_4
             InitializeComponent();
             cbAlphabet.Items.Add("Русский");
             cbAlphabet.Items.Add("Английский");
+            cbAlphabet.SelectedItem = "Русский";
         }
 
         #region Шифровка текста кодом Цезаря
@@ -44,7 +45,22 @@ namespace CS_4
 
         private void CaesarEncode(char[] alphabet)
         {
+            string input = tbInput.Text.ToUpper();
+            string output = "";
 
+            for (int i = 0; i < input.Length; ++i)
+            {
+                for (int j = 0; j < alphabet.Count(); ++j)
+                {
+                    if (input[i] == alphabet[j])
+                    {
+                        output += alphabet[j + 3];
+                        break;
+                    }
+                }
+            }
+
+            tbResult.Text = output;
         }
         #endregion
 
@@ -82,7 +98,7 @@ namespace CS_4
 
         private void PetrIEncode(char[] alphabet)
         {
-
+            
         }
         #endregion
 
