@@ -17,58 +17,24 @@ namespace CS_4
 
         char[] alpharus = { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М',
                             'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ',
-                            'Ы', 'Ь', 'Э', 'Ю', 'Я', 'А', 'Б', 'В'
-        };
+                            'Ы', 'Ь', 'Э', 'Ю', 'Я', 'А', 'Б', 'В' };
+
+        string[] peterKey = { "ме", "ли", "ко", "ин", "зе", "жу", "ню", "оы", "пы", "ра", "су", "ти",
+                              "уф", "хм", "от", "ца", "чу", "ше", "ам", "эм", "яъ", "от", "нь", "щъ",
+                              "юз", "яз", "фу", "бе", "ва", "гу", "дм", "го", "вй" };
 
         char[] alphaeng = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
                             'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
-                            'Y', 'Z', 'A', 'B', 'C'
-        };
+                            'Y', 'Z', 'A', 'B', 'C' };
 
         public Form1()
         {
             InitializeComponent();
             cbAlphabet.Items.Add("Русский");
             cbAlphabet.Items.Add("Английский");
-            cbAlphabet.SelectedItem = "Русский";
+            //cbAlphabet.SelectedItem = "Русский";
 
-            // todo: refactor with loop
-            // todo: correct the alphabet
             // todo: consider space issue
-            encodeTable.Add('а', "ме");
-            encodeTable.Add('б', "ли");
-            encodeTable.Add('в', "ко");
-            encodeTable.Add('г', "ин");
-            encodeTable.Add('д', "зе");
-            encodeTable.Add('е', "жу");
-            encodeTable.Add('ж', "ню");
-            encodeTable.Add('и', "о");
-            encodeTable.Add('й', "пы");
-            encodeTable.Add('к', "ра");
-            encodeTable.Add('л', "су");
-            encodeTable.Add('м', "ти");
-            encodeTable.Add('н', "у");
-            encodeTable.Add('о', "хм");
-            encodeTable.Add('п', "от");
-            encodeTable.Add('р', "ца");
-            encodeTable.Add('с', "чу");
-            encodeTable.Add('т', "ше");
-            encodeTable.Add('у', "ам");
-            encodeTable.Add('ф', "э");
-            encodeTable.Add('х', "ъ");
-            //encodeTable.Add('ы', "от");
-            encodeTable.Add('ц', "ь");
-            //encodeTable.Add('ч', "ъ");
-            encodeTable.Add('ш', "ю");
-            encodeTable.Add('щ', "я");
-            encodeTable.Add('ъ', "ф");
-            encodeTable.Add('ь', "бе");
-            encodeTable.Add('э', "ва");
-            encodeTable.Add('ю', "гу");
-            encodeTable.Add('я', "дм");
-
-            // Меняем ключ-значение для таблицы расшифровки
-            decodeTable = encodeTable.ToDictionary(kv => kv.Value, kv => kv.Key);
         }
 
         #region Шифровка текста кодом Цезаря
@@ -139,12 +105,24 @@ namespace CS_4
 
         private void PetrIEncode(char[] alphabet)
         {
-            string input = tbInput.Text.ToLower();
+            string input = tbInput.Text.ToUpper();
             string output = "";
 
-            foreach (Char c in input)
+            for (int i = 0; i < input.Length; ++i)
             {
-                output += encodeTable[c];
+                if (input[i] == ' ')
+                {
+                    output += " ";
+                }
+                else
+                for (int j = 0; j < alphabet.Length; ++j)
+                {
+                    if (input[i] == alphabet[j])
+                    {
+                        output += peterKey[j];
+                        break;
+                    }
+                }
             }
 
             tbResult.Text = output;
@@ -170,19 +148,24 @@ namespace CS_4
             string output = "";
 
             string tmp = "";
-            for (int i = 0; i < input.Length - 1; ++i)
+            for (int i = 0; i < input.Length - 1; i += 2)
             {
                 tmp = input[i].ToString() + input[i + 1].ToString();
-                if (decodeTable.ContainsKey(tmp))
+                if (input[i] == ' ')
                 {
-                    output += decodeTable[tmp];
-                    tmp = "";
+                    output += " ";
                 }
-                else if (decodeTable.ContainsKey(input[i].ToString()))
-                    output += decodeTable[input[i].ToString()];
+                else
+                for (int j = 0; j < peterKey.Length; ++j)
+                {
+                    if (tmp == peterKey[j])
+                    {
+                        output += alphabet[j];
+                    }
+                }
             }
 
-            tbResult.Text = output;
+            tbResult.Text = output.ToLower();
         }
         #endregion
 

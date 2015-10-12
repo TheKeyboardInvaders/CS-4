@@ -9,3 +9,11 @@ C:\Users\Сергей\Documents\Visual Studio 2015\Projects\КБ\Лаборат�
 C:\Users\Сергей\Documents\Visual Studio 2015\Projects\КБ\Лабораторная работа №4\obj\Debug\CS-4.csproj.GenerateResource.Cache
 C:\Users\Сергей\Documents\Visual Studio 2015\Projects\КБ\Лабораторная работа №4\obj\Debug\CS-4.exe
 C:\Users\Сергей\Documents\Visual Studio 2015\Projects\КБ\Лабораторная работа №4\obj\Debug\CS-4.pdb
+E:\Workspace\Компьютерная безопасность\CS-4\bin\Debug\CS-4.exe
+E:\Workspace\Компьютерная безопасность\CS-4\bin\Debug\CS-4.pdb
+E:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS-4.csprojResolveAssemblyReference.cache
+E:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS_4.Form1.resources
+E:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS_4.Properties.Resources.resources
+E:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS-4.csproj.GenerateResource.Cache
+E:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS-4.exe
+E:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS-4.pdb
