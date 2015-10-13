@@ -35,6 +35,7 @@
             this.btnDecodeCaesar = new System.Windows.Forms.Button();
             this.btnDecodePetrI = new System.Windows.Forms.Button();
             this.cbAlphabet = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbInput
@@ -114,6 +115,16 @@
             this.cbAlphabet.TabIndex = 6;
             this.cbAlphabet.Text = "Выберите язык";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(210, 219);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Вероятность";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,6 +132,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(646, 461);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cbAlphabet);
             this.Controls.Add(this.btnDecodePetrI);
             this.Controls.Add(this.btnDecodeCaesar);
@@ -144,6 +156,7 @@
         private System.Windows.Forms.Button btnDecodeCaesar;
         private System.Windows.Forms.Button btnDecodePetrI;
         private System.Windows.Forms.ComboBox cbAlphabet;
+        private System.Windows.Forms.Button button1;
     }
 }
 

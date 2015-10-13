@@ -17,3 +17,12 @@ E:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS
 E:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS-4.csproj.GenerateResource.Cache
 E:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS-4.exe
 E:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS-4.pdb
+C:\Workspace\Компьютерная безопасность\CS-4\bin\Debug\CS-4.exe.config
+C:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS-4.exe
+C:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS-4.pdb
+C:\Workspace\Компьютерная безопасность\CS-4\bin\Debug\CS-4.exe
+C:\Workspace\Компьютерная безопасность\CS-4\bin\Debug\CS-4.pdb
+C:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS-4.csprojResolveAssemblyReference.cache
+C:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS_4.Form1.resources
+C:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS_4.Properties.Resources.resources
+C:\Workspace\Компьютерная безопасность\CS-4\obj\Debug\CS-4.csproj.GenerateResource.Cache

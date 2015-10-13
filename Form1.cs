@@ -15,26 +15,34 @@ namespace CS_4
         private readonly Dictionary<char, string> encodeTable = new Dictionary<char, string>();
         private readonly Dictionary<string, char> decodeTable;
 
-        char[] alpharus = { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М',
-                            'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ',
-                            'Ы', 'Ь', 'Э', 'Ю', 'Я', 'А', 'Б', 'В' };
+        readonly char[] alpharus = { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М',
+                                     'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ',
+                                     'Ы', 'Ь', 'Э', 'Ю', 'Я', 'А', 'Б', 'В' };
 
-        string[] peterKey = { "ме", "ли", "ко", "ин", "зе", "жу", "ню", "оы", "пы", "ра", "су", "ти",
-                              "уф", "хм", "от", "ца", "чу", "ше", "ам", "эм", "яъ", "от", "нь", "щъ",
-                              "юз", "яз", "фу", "бе", "ва", "гу", "дм", "го", "вй" };
+        double[] arrayStat = new double[33];
 
-        char[] alphaeng = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-                            'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
-                            'Y', 'Z', 'A', 'B', 'C' };
+        double[] occurance = new double[33];
+
+        private double[] occuranceBase =
+        {
+            0.064, 0.015, 0.039, 0.014, 0.026, 0.074, 0.074, 0.008, 0.015, 0.064, 0.01, 0.029, 0.036, 0.026,
+            0.056, 0.095, 0.024, 0.041, 0.047, 0.056, 0.021, 0.002, 0.009, 0.004, 0.013, 0.006, 0.003, 0.015,
+            0.016, 0.015, 0.003, 0.007, 0.019
+        };
+
+        readonly string[] peterKey = { "ме", "ли", "ко", "ин", "зе", "жу", "ню", "оы", "пы", "ра", "су", "ти",
+                                       "уф", "хм", "от", "ца", "чу", "ше", "ам", "эм", "яъ", "от", "нь", "щъ",
+                                       "юз", "яз", "фу", "бе", "ва", "гу", "дм", "го", "вй" };
+
+        readonly char[] alphaeng = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+                                     'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+                                     'Y', 'Z', 'A', 'B', 'C' };
 
         public Form1()
         {
             InitializeComponent();
             cbAlphabet.Items.Add("Русский");
             cbAlphabet.Items.Add("Английский");
-            //cbAlphabet.SelectedItem = "Русский";
-
-            // todo: consider space issue
         }
 
         #region Шифровка текста кодом Цезаря
@@ -50,20 +58,18 @@ namespace CS_4
             }
         }
 
-        private void CaesarEncode(char[] alphabet)
+        private void CaesarEncode(IReadOnlyList<char> alphabet)
         {
-            string input = tbInput.Text.ToUpper();
-            string output = "";
+            var input = tbInput.Text.ToUpper();
+            var output = "";
 
-            for (int i = 0; i < input.Length; ++i)
+            foreach (var t in input)
             {
-                for (int j = 0; j < alphabet.Count(); ++j)
+                for (var j = 0; j < alphabet.Count(); ++j)
                 {
-                    if (input[i] == alphabet[j])
-                    {
-                        output += alphabet[j + 3];
-                        break;
-                    }
+                    if (t != alphabet[j]) continue;
+                    output += alphabet[j + 3];
+                    break;
                 }
             }
 
@@ -84,9 +90,22 @@ namespace CS_4
             }
         }
         
-        private void CaesarDecode(char[] alphabet)
+        private void CaesarDecode(IReadOnlyList<char> alphabet)
         {
+            var input = tbInput.Text;
+            var output = "";
 
+            foreach (var t in input)
+            {
+                for (var j = 3; j < alphabet.Count(); ++j)
+                {
+                    if (t != alphabet[j]) continue;
+                    output += alphabet[j - 3];
+                    break;
+                }
+            }
+
+            tbResult.Text = output;
         }
         #endregion
 
@@ -103,26 +122,24 @@ namespace CS_4
             }
         }
 
-        private void PetrIEncode(char[] alphabet)
+        private void PetrIEncode(IReadOnlyList<char> alphabet)
         {
-            string input = tbInput.Text.ToUpper();
-            string output = "";
+            var input = tbInput.Text.ToUpper();
+            var output = "";
 
-            for (int i = 0; i < input.Length; ++i)
+            foreach (var t in input)
             {
-                if (input[i] == ' ')
+                if (t == ' ')
                 {
                     output += " ";
                 }
                 else
-                for (int j = 0; j < alphabet.Length; ++j)
-                {
-                    if (input[i] == alphabet[j])
+                    for (var j = 0; j < alphabet.Count; ++j)
                     {
+                        if (t != alphabet[j]) continue;
                         output += peterKey[j];
                         break;
                     }
-                }
             }
 
             tbResult.Text = output;
@@ -144,24 +161,26 @@ namespace CS_4
 
         private void PetrIDecode(char[] alphabet)
         {
-            string input = tbInput.Text;
-            string output = "";
+            var input = tbInput.Text;
+            var output = "";
 
-            string tmp = "";
-            for (int i = 0; i < input.Length - 1; i += 2)
+            for (var i = 0; i < input.Length - 1; ++i)
             {
-                tmp = input[i].ToString() + input[i + 1].ToString();
                 if (input[i] == ' ')
                 {
                     output += " ";
                 }
                 else
-                for (int j = 0; j < peterKey.Length; ++j)
                 {
-                    if (tmp == peterKey[j])
+                    var tmp = input[i].ToString() + input[i + 1].ToString();
+                    for (var j = 0; j < peterKey.Length; ++j)
                     {
-                        output += alphabet[j];
+                        if (tmp == peterKey[j])
+                        {
+                            output += alphabet[j];
+                        }
                     }
+                    ++i;
                 }
             }
 
@@ -172,6 +191,57 @@ namespace CS_4
         private void tbInput_Click(object sender, EventArgs e)
         {
             tbInput.Text = "";
+        }
+
+        private void Statistics()
+        {
+            tbResult.Text = "";
+            var input = tbInput.Text.ToUpper();
+            var num = input.Count(t => t != ' ');
+            for (var i = 0; i < 33; ++i)
+            {
+                var v = i;
+                foreach (var t in input.Where(t => alpharus[v] == t))
+                {
+                    ++arrayStat[i];
+                }
+            }
+
+            for (var i = 0; i < arrayStat.Length; ++i)
+            {
+                occurance[i] = Math.Round(arrayStat[i]/num, 3);
+            }
+
+            for (var i = 0; i < occurance.Length; ++i)
+            {
+                tbResult.Text += occurance[i].ToString() + " ";
+            }
+        }
+
+        private void CompareOccurance()
+        {
+            tbResult.Text = "";
+            var input = tbInput.Text;
+            var output = "";
+            foreach (var t in input)
+            {
+                for (var j = 0; j < alpharus.Length; ++j)
+                {
+                    if (t != alpharus[j]) continue;
+                    for (var k = 0; k < occuranceBase.Length; ++k)
+                    {
+                        if (occuranceBase[k] == occurance[j])
+                            output += alpharus[k];
+                    }
+                }
+            }
+            tbResult.Text += output;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Statistics();
+            CompareOccurance();
         }
     }
 }
