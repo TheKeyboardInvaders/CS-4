@@ -212,30 +212,63 @@ namespace CS_4
                 occurance[i] = Math.Round(arrayStat[i]/num, 3);
             }
 
-            for (var i = 0; i < occurance.Length; ++i)
+            foreach (var t in occurance)
             {
-                tbResult.Text += occurance[i].ToString() + " ";
+                tbResult.Text += t.ToString() + " ";
             }
         }
 
         private void CompareOccurance()
         {
             tbResult.Text = "";
-            var input = tbInput.Text;
-            var output = "";
-            foreach (var t in input)
+            var input = tbInput.Text.ToCharArray();
+            var output = tbInput.Text.ToCharArray();
+
+            for (var t = 0; t <= 33; ++t)
             {
-                for (var j = 0; j < alpharus.Length; ++j)
+                var curMax = occurance.Max();
+                var curMaxInd = Array.IndexOf(occurance, curMax);
+
+                var curMaxBase = occuranceBase.Max();
+                var curMaxBaseInd = Array.IndexOf(occuranceBase, curMaxBase);
+
+                for (var i = 0; i < input.Length; ++i)
+                    if (input[i] == alpharus[curMaxInd])
+                        output[i] = alpharus[curMaxBaseInd];
+
+                //todo: Костыль, по возможности исправить
+
+                var j = 0;
+                for (var i = 0; i < occurance.Length; ++i)
                 {
-                    if (t != alpharus[j]) continue;
-                    for (var k = 0; k < occuranceBase.Length; ++k)
+                    if (i == curMaxInd)
                     {
-                        if (occuranceBase[k] == occurance[j])
-                            output += alpharus[k];
+                        continue;
                     }
+                    else occurance[j] = occurance[i];
+                    ++j;
                 }
+
+                j = 0;
+
+                for (var i = 0; i < occuranceBase.Length; ++i)
+                {
+                    if (i == curMaxBaseInd)
+                    {
+                        continue;
+                    }
+                    else occuranceBase[j] = occuranceBase[i];
+                    ++j;
+                }
+
+                //Работает неправильно
+                //occurance = occurance?.Except(new double[] { occurance[curMaxInd] }).ToArray();
+                //occuranceBase = occuranceBase?.Except(new double[] {occuranceBase[curMaxBaseInd]}).ToArray();
             }
-            tbResult.Text += output;
+            foreach (var t in output)
+            {
+                tbResult.Text += t;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
