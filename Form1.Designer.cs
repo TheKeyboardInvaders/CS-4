@@ -34,7 +34,6 @@
             this.btnEncodePetrI = new System.Windows.Forms.Button();
             this.btnDecodeCaesar = new System.Windows.Forms.Button();
             this.btnDecodePetrI = new System.Windows.Forms.Button();
-            this.cbAlphabet = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lbProcent = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -105,22 +104,11 @@
             this.btnDecodePetrI.UseVisualStyleBackColor = true;
             this.btnDecodePetrI.Click += new System.EventHandler(this.btnDecodePetrI_Click);
             // 
-            // cbAlphabet
-            // 
-            this.cbAlphabet.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbAlphabet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbAlphabet.FormattingEnabled = true;
-            this.cbAlphabet.Location = new System.Drawing.Point(256, 221);
-            this.cbAlphabet.Name = "cbAlphabet";
-            this.cbAlphabet.Size = new System.Drawing.Size(105, 21);
-            this.cbAlphabet.TabIndex = 6;
-            this.cbAlphabet.Text = "Выберите язык";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(210, 219);
+            this.button1.Location = new System.Drawing.Point(210, 212);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 23);
+            this.button1.Size = new System.Drawing.Size(84, 37);
             this.button1.TabIndex = 7;
             this.button1.Text = "Вероятность";
             this.button1.UseVisualStyleBackColor = true;
@@ -143,7 +131,6 @@
             this.ClientSize = new System.Drawing.Size(646, 461);
             this.Controls.Add(this.lbProcent);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.cbAlphabet);
             this.Controls.Add(this.btnDecodePetrI);
             this.Controls.Add(this.btnDecodeCaesar);
             this.Controls.Add(this.btnEncodePetrI);
@@ -165,7 +152,6 @@
         private System.Windows.Forms.Button btnEncodePetrI;
         private System.Windows.Forms.Button btnDecodeCaesar;
         private System.Windows.Forms.Button btnDecodePetrI;
-        private System.Windows.Forms.ComboBox cbAlphabet;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbProcent;
     }

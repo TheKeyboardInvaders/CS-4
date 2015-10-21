@@ -48,22 +48,13 @@ namespace CS_4
         public Form1()
         {
             InitializeComponent();
-            cbAlphabet.Items.Add("Русский");
-            cbAlphabet.Items.Add("Английский");
         }
 
         #region Шифровка текста кодом Цезаря
         private void btnEncodeCaesar_Click(object sender, EventArgs e)
         {
             inputMain = tbInput.Text.ToCharArray();
-            if (cbAlphabet.SelectedIndex == 0)
-            {
-                CaesarEncode(alpharus, alpharusMoved);
-            }
-            if (cbAlphabet.SelectedIndex == 1)
-            {
-                CaesarEncode(alphaeng, alpharusMoved);
-            }
+            CaesarEncode(alpharus, alpharusMoved);
         }
 
         private void CaesarEncode(IReadOnlyList<char> alphabet, char[] alphabetMoved)
@@ -88,14 +79,7 @@ namespace CS_4
         #region Расшифровка кода Цезаря
         private void btnDecodeCaesar_Click(object sender, EventArgs e)
         {
-            if (cbAlphabet.SelectedIndex == 0)
-            {
-                CaesarDecode(alpharus, alpharusMoved);
-            }
-            if (cbAlphabet.SelectedIndex == 1)
-            {
-                CaesarDecode(alphaeng, alpharusMoved);
-            }
+            CaesarDecode(alpharus, alpharusMoved);
         }
         
         private void CaesarDecode(IReadOnlyList<char> alphabet, char[] alphabetMoved)
@@ -120,14 +104,7 @@ namespace CS_4
         #region Шифровка текста кодом Петра Первого
         private void btnEncodePetrI_Click(object sender, EventArgs e)
         {
-            if (cbAlphabet.SelectedIndex == 0)
-            {
-                PetrIEncode(alpharus);
-            }
-            if (cbAlphabet.SelectedIndex == 1)
-            {
-                PetrIEncode(alphaeng);
-            }
+            PetrIEncode(alpharus);           
         }
 
         private void PetrIEncode(IReadOnlyList<char> alphabet)
@@ -157,14 +134,7 @@ namespace CS_4
         #region Дешифровка кода Петра Первого
         private void btnDecodePetrI_Click(object sender, EventArgs e)
         {
-            if (cbAlphabet.SelectedIndex == 0)
-            {
-                PetrIDecode(alpharus);
-            }
-            if (cbAlphabet.SelectedIndex == 1)
-            {
-                PetrIDecode(alphaeng);
-            }
+            PetrIDecode(alpharus);           
         }
 
         private void PetrIDecode(char[] alphabet)
@@ -198,7 +168,7 @@ namespace CS_4
 
         private void tbInput_Click(object sender, EventArgs e)
         {
-            //tbInput.Text = "";
+            tbInput.Text = "";
         }
 
         private void Statistics()
@@ -328,12 +298,11 @@ namespace CS_4
         private double CalculateProcent(char[] input, char[] output)
         {
             double count = 0;
-            double percent;
             for (var i = 0; i < output.Length; ++i)
             {
                 if (input[i] == output[i]) ++count;
             }
-            return percent = Math.Round(count / input.Length, 3);
+            return Math.Round(count / input.Length, 6);
         }
 
         private void button1_Click(object sender, EventArgs e)
