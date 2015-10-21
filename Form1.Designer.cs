@@ -36,6 +36,7 @@
             this.btnDecodePetrI = new System.Windows.Forms.Button();
             this.cbAlphabet = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.lbProcent = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbInput
@@ -111,7 +112,7 @@
             this.cbAlphabet.FormattingEnabled = true;
             this.cbAlphabet.Location = new System.Drawing.Point(256, 221);
             this.cbAlphabet.Name = "cbAlphabet";
-            this.cbAlphabet.Size = new System.Drawing.Size(121, 21);
+            this.cbAlphabet.Size = new System.Drawing.Size(105, 21);
             this.cbAlphabet.TabIndex = 6;
             this.cbAlphabet.Text = "Выберите язык";
             // 
@@ -125,6 +126,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lbProcent
+            // 
+            this.lbProcent.AutoSize = true;
+            this.lbProcent.Location = new System.Drawing.Point(368, 228);
+            this.lbProcent.Name = "lbProcent";
+            this.lbProcent.Size = new System.Drawing.Size(0, 13);
+            this.lbProcent.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +141,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(646, 461);
+            this.Controls.Add(this.lbProcent);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbAlphabet);
             this.Controls.Add(this.btnDecodePetrI);
@@ -157,6 +167,7 @@
         private System.Windows.Forms.Button btnDecodePetrI;
         private System.Windows.Forms.ComboBox cbAlphabet;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lbProcent;
     }
 }
 
