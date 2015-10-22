@@ -37,8 +37,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lbProcent = new System.Windows.Forms.Label();
             this.listView = new System.Windows.Forms.ListView();
-            this.Вероятность = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.База = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // tbInput
@@ -127,22 +125,12 @@
             // 
             // listView
             // 
-            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Вероятность,
-            this.База});
             this.listView.Location = new System.Drawing.Point(652, 12);
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(85, 437);
             this.listView.TabIndex = 9;
             this.listView.UseCompatibleStateImageBehavior = false;
-            // 
-            // Вероятность
-            // 
-            this.Вероятность.Width = 20;
-            // 
-            // База
-            // 
-            this.База.Width = 20;
+            this.listView.View = System.Windows.Forms.View.Details;
             // 
             // Form1
             // 
@@ -178,8 +166,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbProcent;
         private System.Windows.Forms.ListView listView;
-        private System.Windows.Forms.ColumnHeader Вероятность;
-        private System.Windows.Forms.ColumnHeader База;
     }
 }
 

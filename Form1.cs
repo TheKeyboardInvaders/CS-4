@@ -45,6 +45,9 @@ namespace CS_4
         private char[] inputMain;
         private char[] outputMain;
 
+        double[] occuranceBackUp = new double[34];
+        double[] occuranceBaseBackUp = new double[34];
+
         public Form1()
         {
             InitializeComponent();
@@ -196,6 +199,16 @@ namespace CS_4
             {
                 tbResult.Text += t.ToString() + " ";
             }
+
+            for (var i = 0; i < occuranceBase.Length; i++)
+            {
+                occuranceBaseBackUp[i] = occuranceBase[i];
+            }
+
+            for (var i = 0; i < occurance.Length; i++)
+            {
+                occuranceBackUp[i] = occurance[i];
+            }
         }
 
         private void CompareOccurance()
@@ -206,18 +219,18 @@ namespace CS_4
 
             for (var t = 0; t <= 34; ++t)
             {
-                var curMax = occurance.Max();
-                var curMaxInd = Array.IndexOf(occurance, curMax);
+                var curMax = occuranceBackUp.Max();
+                var curMaxInd = Array.IndexOf(occuranceBackUp, curMax);
 
-                var curMaxBase = occuranceBase.Max();
-                var curMaxBaseInd = Array.IndexOf(occuranceBase, curMaxBase);
+                var curMaxBase = occuranceBaseBackUp.Max();
+                var curMaxBaseInd = Array.IndexOf(occuranceBaseBackUp, curMaxBase);
 
                 for (var i = 0; i < input.Length; ++i)
                     if (input[i] == alpharus[curMaxInd])
                         output[i] = alpharus[curMaxBaseInd];
 
-                occurance[curMaxInd] = 0;
-                occuranceBase[curMaxBaseInd] = 0;
+                occuranceBackUp[curMaxInd] = 0;
+                occuranceBaseBackUp[curMaxBaseInd] = 0;
             }
 
             foreach (var t in output)
@@ -242,11 +255,16 @@ namespace CS_4
             Statistics();
             CompareOccurance();
             lbProcent.Text = CalculateProcent(inputMain, outputMain).ToString();
-            listView.Columns.Add("Вероятность");
-            listView.Columns.Add("База");
-            for (int i=0; i < occurance.Length; ++i)
+            listView.Columns.Add("O", 40);
+            listView.Columns.Add("B", 40);
+            for (var i=0; i < occurance.Length; ++i)
             {
-                listView.Columns.
+                listView.Items.Add(new ListViewItem(
+                    new string[]
+                    {
+                        occurance[i].ToString(),
+                        occuranceBase[i].ToString()
+                    }));
             }
         }
     }
