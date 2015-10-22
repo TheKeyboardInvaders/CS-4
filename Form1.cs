@@ -104,6 +104,7 @@ namespace CS_4
         #region Шифровка текста кодом Петра Первого
         private void btnEncodePetrI_Click(object sender, EventArgs e)
         {
+            inputMain = tbInput.Text.ToUpper().ToCharArray();
             PetrIEncode(alpharus);           
         }
 
@@ -168,7 +169,7 @@ namespace CS_4
 
         private void tbInput_Click(object sender, EventArgs e)
         {
-            tbInput.Text = "";
+            //tbInput.Text = "";
         }
 
         private void Statistics()
@@ -218,6 +219,7 @@ namespace CS_4
                 occurance[curMaxInd] = 0;
                 occuranceBase[curMaxBaseInd] = 0;
             }
+
             foreach (var t in output)
             {
                 tbResult.Text += t;
@@ -228,7 +230,7 @@ namespace CS_4
         private double CalculateProcent(char[] input, char[] output)
         {
             double count = 0;
-            for (var i = 0; i < output.Length; ++i)
+            for (var i = 0; i < input.Length; ++i)
             {
                 if (input[i] == output[i]) ++count;
             }
