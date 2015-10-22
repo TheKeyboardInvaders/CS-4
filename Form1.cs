@@ -217,85 +217,12 @@ namespace CS_4
 
                 occurance[curMaxInd] = 0;
                 occuranceBase[curMaxBaseInd] = 0;
-
-                //todo: Костыль, по возможности исправить
-
-                //ShrinkOccurance(occurance, curMaxInd);
-
-                //ShrinkOccurance(occuranceBase, curMaxBaseInd);
-
-                /*var j = 0;
-                double[] tmpdb = new double[occurance.Length - 1];
-
-                for (var i = 0; i < occurance.Length; ++i)
-                {
-                    if (i == curMaxInd)
-                    {
-                        continue;
-                    }
-                    else tmpdb[j] = occurance[i];
-                    ++j;
-                }
-
-                occurance = tmpdb;
-
-                j = 0;
-                double[] tmpdbBase = new double[occuranceBase.Length - 1];
-
-                for (var i = 0; i < occuranceBase.Length; ++i)
-                {
-                    if (i == curMaxBaseInd)
-                    {
-                        continue;
-                    }
-                    else tmpdbBase[j] = occuranceBase[i];
-                    ++j;
-                }
-
-                occuranceBase = tmpdbBase;
-
-                j = 0;
-                char[] tmpalpha = new char[alpharus.Length - 1];
-
-                for (var i = 0; i < alpharus.Length; ++i)
-                {
-                    if (i == curMaxInd)
-                    {
-                        continue;
-                    }
-                    else tmpalpha[j] = alpharus[i];
-                    ++j;
-                }
-
-                alpharus = tmpalpha;*/
-
-                //Работает неправильно
-                //occurance = occurance?.Except(new double[] { occurance[curMaxInd] }).ToArray();
-                //occuranceBase = occuranceBase?.Except(new double[] {occuranceBase[curMaxBaseInd]}).ToArray();
             }
             foreach (var t in output)
             {
                 tbResult.Text += t;
             }
             outputMain = tbResult.Text.ToCharArray();
-        }
-
-        private void ShrinkOccurance(double[] db, int index)
-        {
-            var j = 0;
-            double[] tmpdb = new double[db.Length - 1];
-
-            for (var i = 0; i < db.Length; ++i)
-            {
-                if (i == index)
-                {
-                    continue;
-                }
-                else tmpdb[j] = db[i];
-                ++j;
-            }
-            
-            db = tmpdb;
         }
 
         private double CalculateProcent(char[] input, char[] output)
