@@ -53,7 +53,7 @@ namespace CS_4
         #region Шифровка текста кодом Цезаря
         private void btnEncodeCaesar_Click(object sender, EventArgs e)
         {
-            inputMain = tbInput.Text.ToCharArray();
+            inputMain = tbInput.Text.ToUpper().ToCharArray();
             CaesarEncode(alpharus, alpharusMoved);
         }
 
@@ -203,7 +203,7 @@ namespace CS_4
             var input = tbInput.Text.ToCharArray();
             var output = tbInput.Text.ToCharArray();
 
-            for (var t = 0; t <= occurance.Length; ++t)
+            for (var t = 0; t <= 34; ++t)
             {
                 var curMax = occurance.Max();
                 var curMaxInd = Array.IndexOf(occurance, curMax);
@@ -215,13 +215,16 @@ namespace CS_4
                     if (input[i] == alpharus[curMaxInd])
                         output[i] = alpharus[curMaxBaseInd];
 
+                occurance[curMaxInd] = 0;
+                occuranceBase[curMaxBaseInd] = 0;
+
                 //todo: Костыль, по возможности исправить
 
                 //ShrinkOccurance(occurance, curMaxInd);
 
                 //ShrinkOccurance(occuranceBase, curMaxBaseInd);
 
-                var j = 0;
+                /*var j = 0;
                 double[] tmpdb = new double[occurance.Length - 1];
 
                 for (var i = 0; i < occurance.Length; ++i)
@@ -264,7 +267,7 @@ namespace CS_4
                     ++j;
                 }
 
-                alpharus = tmpalpha;
+                alpharus = tmpalpha;*/
 
                 //Работает неправильно
                 //occurance = occurance?.Except(new double[] { occurance[curMaxInd] }).ToArray();
