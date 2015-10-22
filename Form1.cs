@@ -123,7 +123,7 @@ namespace CS_4
                     for (var j = 0; j < alphabet.Count; ++j)
                     {
                         if (t != alphabet[j]) continue;
-                        output += peterKey[j];
+                        output += peterKey[j].ToUpper();
                         break;
                     }
             }
