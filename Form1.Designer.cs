@@ -127,7 +127,7 @@
             // 
             this.listView.Location = new System.Drawing.Point(652, 12);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(85, 437);
+            this.listView.Size = new System.Drawing.Size(112, 437);
             this.listView.TabIndex = 9;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -138,7 +138,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(749, 461);
+            this.ClientSize = new System.Drawing.Size(776, 461);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.lbProcent);
             this.Controls.Add(this.button1);
