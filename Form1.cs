@@ -242,6 +242,12 @@ namespace CS_4
             Statistics();
             CompareOccurance();
             lbProcent.Text = CalculateProcent(inputMain, outputMain).ToString();
+            listView.Columns.Add("Вероятность");
+            listView.Columns.Add("База");
+            for (int i=0; i < occurance.Length; ++i)
+            {
+                listView.Columns.
+            }
         }
     }
 }
